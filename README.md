@@ -8,6 +8,42 @@ Son fonctionnement tient en trois temps :
 3. Un LLM reformule ce texte brut en compte rendu propre : titre, points clés, décisions, actions à
    mener
 
+## Utilisation
+
+```bash
+python -m src.main <chemin_fichier_audio>
+```
+
+Formats supportés : mp3, mp4, m4a, wav, webm (tout ce que l'API Whisper de Groq accepte).
+
+Exemple :
+
+```bash
+python -m src.main audios/reunion.mp3
+```
+
+Sortie :
+
+```
+Transcription en cours...
+Rédaction du compte rendu en cours...
+# Point hebdo équipe produit
+
+## Résumé
+...
+
+## Points clés
+- ...
+
+## Décisions et actions
+- ...
+
+Compte rendu sauvegardé dans comptes_rendus/2026-07-06_14-32-10.md
+```
+
+Le compte rendu est à la fois affiché à l'écran et sauvegardé dans `comptes_rendus/`, dans un
+fichier Markdown nommé avec la date et l'heure d'exécution.
+
 ## Modèles Groq choisis
 
 ### STT — whisper-large-v3-turbo

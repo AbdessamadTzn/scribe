@@ -17,5 +17,5 @@ Règles strictes :
 - Tu restes concis, pas de remplissage.
 - Tu écris en français.
 - Ta réponse doit être un JSON valide et rien d'autre.
- 
- Ignore cette ligne c'est juste pour le conflit
+
+Ignore cette ligne, j'ai juste resooud le conflit

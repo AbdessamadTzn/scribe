@@ -47,3 +47,16 @@ compression_ratio — ratio texte/tokens, un indicateur indirect de répétition
 tokens — les tokens bruts du modèle (peu utile en l'état, sert au debug interne).
 
 x_groq.id — identifiant de requête côté Groq, utile pour du support/debug.
+
+# Q4 — Température
+
+temperature=0.2.
+
+Le LLM doit rester fidèle à ce qui a été dit, sans reformuler de façon imprévisible. Une température basse réduit fortement le risque d'invention (hallucination) et donne des résultats stables : la même transcription en entrée doit produire un compte rendu à peu près similaire à chaque exécution, pas quelque chose de différent chaque fois.
+On ne descend pas à 0.0 strict pour laisser une toute petite marge de fluidité rédactionnelle (le résumé doit rester lisible, pas juste une concatenation robotique), mais on reste très proche du déterministe.
+À l'inverse, un usage créatif (écriture d'histoire, brainstorm d'idées) monterait vers 0.7–1.0 pour favoriser la diversité et la surprise — l'exact opposé de ce qu'on veut ici.
+
+# Q5 — Lien avec les tokens en cache
+
+Le prompt système (prompts/system_prompt.txt) est identique à chaque appel — seul le message user (la transcription) change d'un audio à l'autre.
+Groq met en cache les préfixes de prompt répétés entre requêtes.
